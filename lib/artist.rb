@@ -13,22 +13,23 @@ class Artist
   end
   
   def add_song(song)
+    new_song = self.new_song(song)
     @songs << song
     song.artist = self
   end
   
-  def self.new_song(song_name)
+  def new_song(song_name)
     new_song = Song.new(song_name)
     new_song.artist = self
   end
   
-  def self.songs
+  def songs
     Song.all.select do |song|
       song.artist == self
     end
   end
   
-  def self.genres
+  def genres
     own_songs = self.songs
     own_songs.select do |song|
       song.genre
