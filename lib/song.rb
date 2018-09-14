@@ -1,8 +1,9 @@
 class Song
-  attr_writer :name
+  attr_accesor :name
   @@all = []
   
   def initialize(name)
     @name = name
+    @@all.clear
   end
 end
